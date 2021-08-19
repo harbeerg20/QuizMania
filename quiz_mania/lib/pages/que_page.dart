@@ -12,11 +12,38 @@ class QuePage extends StatefulWidget {
 }
 
 class _QuePageState extends State<QuePage> {
-  @override
-  Widget build(BuildContext context) {
-      Timer(Duration(seconds : 10),(){
-        Navigator.pushNamed(context, '/timeup');
+  int time=20;
+  CountDown(){
+  Future.doWhile(()  async{
+      await Future.delayed(Duration(seconds: 1),);
+      
+      setState((){
+        // return time!=0;
+        time--;
+        print('$time');
       });
+      if(time!=0){
+        return time!=0;
+      }else{
+        
+        Navigator.pushNamed(context, '/timeup');
+        return time!=0;
+      }
+  });
+}
+@override
+  void initState() {
+    super.initState();
+    time=5;
+    CountDown();
+    
+  }
+
+  @override
+      Widget build(BuildContext context) {
+  //     Timer(Duration(seconds : 10),(){
+  //       Navigator.pushNamed(context, '/timeup');
+  //     });
 
     return Scaffold(
       appBar: AppBar(
@@ -153,6 +180,28 @@ class _QuePageState extends State<QuePage> {
                   ),
                 ],
               ),
+              SizedBox(height: 30,),
+              
+                Row(
+                  children: [
+                    SizedBox(width: 90,),
+                    Text('Time Left:',
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                    ),
+                  ],
+                ),
+              Row(
+                children: [
+                  SizedBox(width: 120,),
+                  Text('$time(sec)',
+                    style: TextStyle(
+                      fontSize: 40,
+                    ),
+                    ),
+                ],
+              ),    
             ],
           ),
         ),
