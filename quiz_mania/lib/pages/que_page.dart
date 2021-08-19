@@ -1,5 +1,7 @@
 
 
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,6 +14,10 @@ class QuePage extends StatefulWidget {
 class _QuePageState extends State<QuePage> {
   @override
   Widget build(BuildContext context) {
+      Timer(Duration(seconds : 10),(){
+        Navigator.pushNamed(context, '/timeup');
+      });
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
