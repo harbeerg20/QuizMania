@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,24 +25,131 @@ class _QuePageState extends State<QuePage> {
         backgroundColor: Colors.blueGrey,
 
       ),
-      body: Column(
-        children: [
-          Card(
-            
-            margin: EdgeInsets.fromLTRB(10.0,30.0,0.0,20.0),
-            child: InkWell(
-              child: Text('\n question one \n'),
-              onTap: () async{
-                if(true){
-                  print('fuck');
-                }
-                
-              },
+      body: SingleChildScrollView(
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                width: 380,
+                child: Card(
+                  color: Colors.grey[200],
+                  margin: EdgeInsets.fromLTRB(10.0,30.0,0.0,20.0),
+                  child: InkWell(
+                    child: Text(
+                      '\n This is our first question. \n',
+                      style: TextStyle(
+                        fontSize: 25.0,
+                        fontWeight: FontWeight.bold,
+
+                      ),
+                      ),
+                   
+                    ),
+                    //color:  true ? Colors.blueGrey : Colors.white,
+                ),
               ),
-              color:  true ? Colors.blueGrey : Colors.white,
-              //color: Colors.grey[200],
+              Text(
+                '  Choose the correct option:-',
+                style: TextStyle(fontSize: 15),
+                ),
+              SizedBox(
+                width: 250,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    ),
+                  child: InkWell(
+                    child: Text(
+                      '\n  Option 1  \n',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      ),
+                      onTap: (){
+                        print('option 1');
+                      },
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 250,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    ),
+                  child: InkWell(
+                    child: Text(
+                      '\n  option 2  \n',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      ),
+                      onTap: (){
+                        print('option 2');
+                      },
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 250,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    ),
+                  child: InkWell(
+                    child: Text(
+                      '\n  option 3  \n',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      ),
+                      onTap: (){
+                        print('option 3');
+                      },
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: 250,
+                child: Card(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                    ),
+                  child: InkWell(
+                    child: Text(
+                      '\n  option 4  \n',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                      ),
+                      onTap: (){
+                        print('option 4');
+                      },
+                  ),
+                ),
+              ),
+              Row(
+                children: [
+                  SizedBox(width: 10,),
+                  ElevatedButton.icon(
+                    onPressed: (){},
+                    label: Text('Finish'),
+                    icon: Icon(Icons.done),
+                  ),
+                  SizedBox(width: 180,),
+                  ElevatedButton.icon(
+                    onPressed: (){
+                      print('next');
+                    },
+                    label: Text('Next'),
+                    icon: Icon(Icons.navigate_next),
+                  ),
+                ],
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }
